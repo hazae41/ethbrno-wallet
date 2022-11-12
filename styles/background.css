@@ -1,26 +1,29 @@
 @layer utilities {
   .bg-default {
-    @apply bg-white;
-    @apply dark:bg-black;
+    @apply bg-violet1;
   }
 
   .bg-opposite {
     @apply bg-black;
-    @apply dark:bg-white;
   }
 
   .bg-contrast {
-    @apply bg-black bg-opacity-5;
-    @apply dark:bg-white dark:bg-opacity-5;
+    @apply bg-mauve4;
   }
 
   .bg-backdrop {
     @apply bg-neutral-500 bg-opacity-50;
-    @apply dark:bg-neutral-500 dark:bg-opacity-50;
   }
 
   .bg-opaque {
     @apply bg-white bg-opacity-50;
-    @apply dark:bg-black dark:bg-opacity-50;
+  }
+
+  .bg-component {
+    @apply bg-violet3 bg-ahover;
+  }
+
+  .bg-ahover {
+    @apply ahover:bg-violet4;
   }
 }

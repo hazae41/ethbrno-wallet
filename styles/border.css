@@ -1,0 +1,5 @@
+@layer utilities {
+  .border-default {
+    @apply border-violet6 ahover:border-violet8;
+  }
+}

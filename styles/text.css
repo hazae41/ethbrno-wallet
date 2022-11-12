@@ -1,17 +1,18 @@
 @layer utilities {
   .text-default {
-    @apply text-black;
-    @apply dark:text-white;
+    @apply text-violet12;
   }
 
   .text-opposite {
     @apply text-white;
-    @apply dark:text-black;
   }
 
   .text-contrast {
-    @apply text-black text-opacity-50;
-    @apply dark:text-white dark:text-opacity-50;
+    @apply text-mauve11;
+  }
+
+  .text-colored {
+    @apply text-violet11;
   }
 
   .text-break {
