@@ -12,3 +12,7 @@ export interface ChildrenProps {
 export interface CloseProps {
   close(): void
 }
+
+export interface OkProps<T> {
+  ok(x: T): void
+}
