@@ -22,7 +22,7 @@ function ExternalLinkButton() {
         <HoverPopper target={linkPopper}>
             {"Go check the ip use"}
         </HoverPopper>
-        <ExternalDivisionLink href="/">
+        <ExternalDivisionLink href="https://lunar-logs.vercel.app/">
             <OppositeTextButtonRounded
                 onMouseEnter={linkPopper.use}
                 onMouseLeave={linkPopper.unset}>
