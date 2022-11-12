@@ -9,7 +9,7 @@ export function ContrastTextButton(props: ButtonProps & OptionalIconProps & RefP
 
   const { xref, icon: Icon, className, children, ...other } = props
 
-  return <button className={`group rounded-xl p-md bg-ahover transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
+  return <button className={`group rounded-xl p-md bg-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
     {...other}
     ref={xref}>
     <div className="flex justify-center items-center gap-2 group-enabled:group-active:scale-90 transition-transform">

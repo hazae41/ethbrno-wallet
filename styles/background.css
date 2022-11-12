@@ -20,10 +20,10 @@
   }
 
   .bg-component {
-    @apply bg-violet3 bg-ahover;
+    @apply bg-violet3 bg-hover;
   }
 
-  .bg-ahover {
-    @apply ahover:bg-violet4;
+  .bg-hover {
+    @apply hover:bg-violet4;
   }
 }
