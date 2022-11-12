@@ -8,30 +8,31 @@
     "build:next": "mv out/_next out/next && sed -i '' -e 's/\\/_next/\\.\\/next/g' out/**.html",
     "build:chrome": "rm -rf chrome && cp -R out chrome && mv chrome/chrome/* chrome && rm -rf chrome/chrome chrome/firefox",
     "build:firefox": "rm -rf firefox && cp -R out firefox && mv firefox/firefox/* firefox && rm -rf firefox/chrome firefox/firefox",
+    "clean": "rm -rf node_modules .next out chrome firefox",
     "lint": "next lint"
   },
   "dependencies": {
     "@hazae41/echalote": "^0.0.4",
     "@hazae41/xswr": "^1.1.7",
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.8",
-    "eslint": "8.27.0",
-    "eslint-config-next": "13.0.3",
+    "@heroicons/react": "^2.0.13",
     "ethers": "^5.7.2",
-    "next": "13.0.3",
+    "next": "13.0.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "4.8.4"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.200",
     "@types/firefox-webext-browser": "^94.0.1",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.8",
     "autoprefixer": "^10.4.13",
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.2",
     "npm-watch": "^0.11.0",
-    "postcss": "^8.4.19",
-    "postcss-import": "^15.0.0",
-    "tailwindcss": "^3.2.4"
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.2",
+    "typescript": "4.8.4"
   },
   "watch": {
     "build": {
