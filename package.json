@@ -8,7 +8,7 @@
     "build:next": "mv out/_next out/next && sed -i '' -e 's/\\/_next/\\.\\/next/g' out/**.html",
     "build:chrome": "rm -rf chrome && cp -R out chrome && mv chrome/chrome/* chrome && rm -rf chrome/chrome chrome/firefox",
     "build:firefox": "rm -rf firefox && cp -R out firefox && mv firefox/firefox/* firefox && rm -rf firefox/chrome firefox/firefox",
-    "clean": "rm -rf node_modules .next out chrome firefox",
+    "clean": "rm -rf node_modules .next out chrome firefox package-lock.json",
     "lint": "next lint"
   },
   "dependencies": {
