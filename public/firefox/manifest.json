@@ -6,5 +6,8 @@
   "browser_action": {
     "default_title": "Lunar Wallet",
     "default_popup": "index.html"
-  }
+  },
+  "permissions": [
+    "https://meek.bamsoftware.com/*"
+  ]
 }
