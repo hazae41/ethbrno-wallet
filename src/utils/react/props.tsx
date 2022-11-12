@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode, Ref } from "react"
 
 export type DivisionProps = JSX.IntrinsicElements["div"]
 export type ButtonProps = JSX.IntrinsicElements["button"]
@@ -15,4 +15,8 @@ export interface CloseProps {
 
 export interface OkProps<T> {
   ok(x: T): void
+}
+
+export interface RefProps<T = HTMLElement> {
+  xref?: Ref<T>;
 }

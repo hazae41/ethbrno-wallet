@@ -1,4 +1,5 @@
-import { Button } from "components/button"
+import { ShieldCheckIcon } from "@heroicons/react/24/outline"
+import { Button, ContrastTextButton } from "components/button"
 import { useRouter } from "next/router"
 import { useCallback } from "react"
 import { useBoolean } from "utils/react/boolean"
@@ -17,10 +18,24 @@ export function WalletsPage(props: {}) {
     router.push(`/#/wallet/${wallet.address}`, undefined, {})
   }, [router])
 
-  const Header =
-    <h1 className="text-xl font-bold">
-      My wallets
-    </h1>
+  const Header = <div className="flex p-md text-colored rounded-b-xl border-b border-violet6 bg-violet2 justify-between">
+    <ContrastTextButton className="w-[100px]">
+      <span className="text-xs">
+        Tor
+      </span>
+      <ShieldCheckIcon className="icon-xs text-grass8" />
+    </ContrastTextButton>
+    <ContrastTextButton className="w-full">
+      <span className="text-xs">
+        {"Goerli Tesnet"}
+      </span>
+    </ContrastTextButton>
+    <ContrastTextButton className="w-[100px]">
+      <span className="text-xs">
+        ETHBrno
+      </span>
+    </ContrastTextButton>
+  </div>
 
   const CreateButton =
     <Button onClick={creator.enable}>
