@@ -1,8 +1,9 @@
 import { ArrowTopRightOnSquareIcon, CurrencyDollarIcon } from "@heroicons/react/24/outline"
-import { ExternalDivisionLink } from "src/utils/next/anchor"
-import { useElement } from "src/utils/react/element"
-import { HoverPopper } from "../modals/popper"
+import { ExternalDivisionLink } from "utils/next/anchor"
+import { useElement } from "utils/react/element"
 import { OppositeTextButtonRounded } from "./button"
+import { HoverPopper } from "./modal"
+
 
 export function ActionButton() {
 

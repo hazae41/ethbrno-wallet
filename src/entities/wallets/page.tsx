@@ -1,5 +1,7 @@
-import { ArrowLeftIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
-import { Button, ContrastTextButton } from "components/button";
+import { ArrowLeftIcon, ArrowTopRightOnSquareIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
+import { ActionButton } from "components/actionButton";
+import { ContrastTextButton, OppositeTextButton } from "components/button";
+import { HoverPopper } from "components/modal";
 import { useCircuit } from "contexts/circuit/context";
 import { Wallet } from "ethers";
 import { getAddress, hexValue, parseUnits } from "ethers/lib/utils";
@@ -7,8 +9,10 @@ import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
 import { alertAsJson } from "utils/errors";
 import { tryFloat } from "utils/ethers/bignum";
+import { ExternalDivisionLink } from "utils/next/anchor";
 import { useAsyncTry } from "utils/react/async";
 import { useBoolean } from "utils/react/boolean";
+import { useElement } from "utils/react/element";
 import { useInputChange } from "utils/react/events";
 import { torrpcfetch } from "utils/tor/fetcher";
 import { useBalance, useGasPrice, useNonce, useWallet } from "./data";
@@ -167,52 +171,70 @@ export function WalletPage(props: {}) {
   </div>
 
   const RecipientInput = <>
-    <h3 className="font-medium">
+    <h3 className="text-colored">
       Recipient
     </h3>
-    <input className="py-2 px-4 bg-contrast rounded-xl"
+    <input className="py-2 px-4 bg-contrast rounded-xl w-full outline-violet6"
       value={recipientInput}
       placeholder="0x..."
       onChange={onRecipientInputChange} />
   </>
 
   const ValueInput = <>
-    <h3 className="font-medium">
+    <h3 className="text-colored">
       Value
     </h3>
-    <input className="py-2 px-4 bg-contrast rounded-xl"
+    <input className="py-2 px-4 bg-contrast rounded-xl w-full outline-violet6"
       value={valueInput}
       placeholder="1.0"
       onChange={onValueInputChange} />
   </>
 
-  const TxHashDisplay =
-    <div className="text-break">
-      Transaction hash: {txHash}
+  const TxHashDisplay = <>
+    <div className="text-break p-md">
+      <div>
+        <span className="text-colored">Transaction hash:</span>
+      </div>
+      <span className="text-contrast text-sm">{txHash}</span>
+      <ExternalDivisionLink className="flex items-center gap-2 text-colored cursor-pointer ahover:underline w-[150px]"
+        href={`https://goerli.etherscan.io/tx/${txHash}`} target="no">
+        <span className="text-sm">See on etherscan</span>
+        <ArrowTopRightOnSquareIcon className="icon-xs" />
+      </ExternalDivisionLink>
     </div>
+  </>
+
+  const disabled = useMemo(() => {
+    if (recipientInput === "") return true
+    if (valueInput === "") return true
+    return false
+  }, [recipientInput, valueInput])
 
   const SendButton =
-    <Button onClick={trySend.run}>
+    <OppositeTextButton disabled={disabled} onClick={trySend.run}>
       {trySend.loading
         ? "Loading..."
         : "Send transaction"}
-    </Button>
+    </OppositeTextButton>
 
   return <main className="h-full flex flex-col">
     {Header}
+    <div className="h-4" />
+    {WalletInfo}
     <div className="h-2" />
-    {AddressDisplay}
-    <div className="h-2" />
-    {BalanceDisplay}
-    <div className="h-2" />
-    {RecipientInput}
-    <div className="h-2" />
-    {ValueInput}
+    <div className="p-md">
+      {RecipientInput}
+      <div className="h-2" />
+      {ValueInput}
+    </div>
     <div className="grow" />
     {txHash && <>
       {TxHashDisplay}
       <div className="h-2" />
     </>}
-    {SendButton}
+    <div className="p-md">
+      {SendButton}
+    </div>
+    <div className="h-1" />
   </main>
 }

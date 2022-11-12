@@ -1,4 +1,5 @@
 import { ReactNode, Ref } from "react"
+import { ElementHandle } from "./element"
 
 export type DivisionProps = JSX.IntrinsicElements["div"]
 export type ButtonProps = JSX.IntrinsicElements["button"]
@@ -19,4 +20,8 @@ export interface OkProps<T> {
 
 export interface RefProps<T = HTMLElement> {
   xref?: Ref<T>;
+}
+
+export interface TargetProps<T extends Element = Element> {
+  target: ElementHandle<T>;
 }
