@@ -196,7 +196,7 @@ export function WalletPage(props: {}) {
         <span className="text-colored">Transaction hash:</span>
       </div>
       <span className="text-contrast text-sm">{txHash}</span>
-      <ExternalDivisionLink className="flex items-center gap-2 text-colored cursor-pointer ahover:underline w-[150px]"
+      <ExternalDivisionLink className="flex items-center gap-2 text-colored cursor-pointer hover:underline w-[150px]"
         href={`https://goerli.etherscan.io/tx/${txHash}`} target="no">
         <span className="text-sm">See on etherscan</span>
         <ArrowTopRightOnSquareIcon className="icon-xs" />
