@@ -1,0 +1,21 @@
+@layer utilities {
+  .animate-opacity {
+    animation: opacity 150ms ease;
+  }
+
+  .animate-scale {
+    animation: scale 150ms ease;
+  }
+  
+  .animate-opacity-scale {
+    animation: opacity 150ms ease, scale 150ms ease;
+  }
+
+  @keyframes opacity {
+    from { opacity: 0%; }
+  }
+
+  @keyframes scale {
+    from { transform: scale(0%); }
+  }
+}

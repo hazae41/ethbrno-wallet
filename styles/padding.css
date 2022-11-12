@@ -1,0 +1,13 @@
+@layer base {
+  .p-sm {
+    @apply px-2 py-1;
+  }
+
+  .p-md {
+    @apply px-4 py-2;
+  }
+
+  .p-mdl {
+    @apply px-4 py-3;
+  }
+}
