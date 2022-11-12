@@ -13,14 +13,11 @@ export function useCircuit() {
 }
 
 const middles = [
-  "CCA99738D64ECF8E2D478FABA9D38EDAE6B5DCFD",
   "720ABE4554C55EE6F6099491CA55D1F5550512C5",
   "D89267FB10BF625D31FF7687AF7D12B03BBF757C",
   "23BAB4A9B1B7F553599CD81AED553FACB7B35210",
   "FD449127D30D8F5D124653D9EF736EDF4A12B4DC",
-  "975D138E0851C06D2AD520DF7F24660802970CA1",
   "D3A1B7DEF370CBC6055F3FC540A518C8576D7570",
-  "A2E6BB5C391CD46B38C55B4329C35304540771F1"
 ]
 
 const exits = [
@@ -50,9 +47,13 @@ export function CircuitProvider(props: ChildrenProps) {
     const middle = fallbacks.find(it => it.id === middleid)!
     await circuit._extend(middle)
 
+    console.log("middleid", middleid)
+
     const exitid = randomOf(exits)!
     const exit = fallbacks.find(it => it.id === exitid)!
     await circuit._extend(exit)
+
+    console.log("exitid", exitid)
 
     setCircuit(circuit)
   }, [tor])
