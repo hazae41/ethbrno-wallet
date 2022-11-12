@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "name": "Lunar Wallet",
+  "description": "The private wallet",
+  "version": "0.1",
+  "browser_action": {
+    "default_title": "Lunar Wallet",
+    "default_popup": "index.html"
+  }
+}
