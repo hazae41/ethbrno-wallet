@@ -1,5 +1,5 @@
 import { ShieldCheckIcon } from "@heroicons/react/24/outline"
-import { Button, ContrastTextButton } from "components/button"
+import { ContrastTextButton, OppositeTextButton } from "components/button"
 import { useRouter } from "next/router"
 import { useCallback } from "react"
 import { useBoolean } from "utils/react/boolean"
@@ -38,9 +38,9 @@ export function WalletsPage(props: {}) {
   </div>
 
   const CreateButton =
-    <Button onClick={creator.enable}>
-      Create wallet
-    </Button>
+    <OppositeTextButton onClick={creator.enable}>
+      Add wallet
+    </OppositeTextButton>
 
   const WalletsList = wallets.data?.map(wallet =>
     <ClickableWalletRow
@@ -48,18 +48,23 @@ export function WalletsPage(props: {}) {
       wallet={wallet}
       ok={onWalletClick} />)
 
+
   const Body =
-    <ul className="grow flex flex-col gap-2">
+    <ul className="grow flex flex-col">
       {WalletsList}
       <div className="grow" />
-      <>{CreateButton}</>
+      <div className="p-md">{CreateButton}</div>
+      <div className="h-1" />
     </ul>
 
-  return <main className="p-mdl h-full flex flex-col">
+  return <main className="h-full flex flex-col">
+    {Header}
+    <div className="h-4" />
+    <span className="text-center text-colored text-2xl">My Wallets</span>
+    <div className="h-2" />
     {creator.current &&
       <WalletCreatorDialog
         close={creator.disable} />}
-    {Header}
     <div className="h-2" />
     {Body}
   </main>
@@ -72,7 +77,7 @@ export function ClickableWalletRow(props: WalletProps & OkProps<Wallet>) {
     ok(wallet)
   }, [ok, wallet])
 
-  return <div className="cursor-pointer"
+  return <div className="p-md cursor-pointer"
     onClick={onClick}>
     <WalletRow wallet={wallet} />
   </div>

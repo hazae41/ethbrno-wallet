@@ -1,13 +1,14 @@
-import { Button } from "components/button";
-import { Outline } from "components/icons";
+import { ArrowLeftIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
+import { Button, ContrastTextButton } from "components/button";
 import { useCircuit } from "contexts/circuit/context";
 import { Wallet } from "ethers";
 import { getAddress, hexValue, parseUnits } from "ethers/lib/utils";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { alertAsJson } from "utils/errors";
 import { tryFloat } from "utils/ethers/bignum";
 import { useAsyncTry } from "utils/react/async";
+import { useBoolean } from "utils/react/boolean";
 import { useInputChange } from "utils/react/events";
 import { torrpcfetch } from "utils/tor/fetcher";
 import { useBalance, useGasPrice, useNonce, useWallet } from "./data";
@@ -32,7 +33,10 @@ export function WalletPage(props: {}) {
   const [valueInput = "", setValueInput] = useState<string>()
 
   const onValueInputChange = useInputChange(e => {
-    setValueInput(e.currentTarget.value)
+    const value = e.currentTarget.value
+      .replaceAll(/[^\d.,]/g, "")
+      .replaceAll(",", ".")
+    setValueInput(value)
   }, [])
 
   const [txHash, setTxHash] = useState<string>()
@@ -83,20 +87,25 @@ export function WalletPage(props: {}) {
     nonce.refetch()
   }, [circuit, address, nonce.data, gasPrice.data, recipientInput, valueInput], alertAsJson)
 
-  const Header =
-    <div className="flex items-center gap-2">
-      <button onClick={router.back}>
-        <Outline.ArrowLeftIcon className="icon-sm" />
-      </button>
-      <h1 className="text-xl font-bold">
-        Send transaction
-      </h1>
-    </div>
+  const Header = <div className="flex p-md text-colored rounded-b-xl border-b border-violet6 bg-violet2 justify-between">
+    <ContrastTextButton className="w-[100px]">
+      <span className="text-xs">
+        Tor
+      </span>
+      <ShieldCheckIcon className="icon-xs text-grass8" />
+    </ContrastTextButton>
+    <ContrastTextButton className="w-full">
+      <span className="text-xs">
+        {"Goerli Tesnet"}
+      </span>
+    </ContrastTextButton>
+    <ContrastTextButton className="w-[100px]">
+      <span className="text-xs">
+        ETHBrno
+      </span>
+    </ContrastTextButton>
+  </div>
 
-  const AddressDisplay =
-    <div className="text-break">
-      Your address is {address}
-    </div>
 
   const fbalance = (() => {
     if (balance.error)
@@ -106,10 +115,56 @@ export function WalletPage(props: {}) {
     return tryFloat(balance.data, 18)
   })()
 
-  const BalanceDisplay =
-    <div>
-      You have {fbalance} ETH on Goerli
+  const copyPopper = useElement()
+  const copied = useBoolean()
+  const content = useMemo(() => {
+    if (!copied.current) return "Copy address to clipboard"
+    return "Copy address successfully"
+  }, [copied])
+
+  const error = ((e: any) => {
+    return
+  })
+
+  const onCopyClick = useAsyncTry(async () => {
+    await navigator.clipboard.writeText(address)
+    copied.enable()
+    setTimeout(() => copied.disable(), 600)
+  }, [copied], error)
+
+  const WalletInfo = <div className="flex flex-col items-center justify-center gap-2">
+    <div className="w-full flex px-4 justify-between items-start">
+      <div className="w-[50px] flex justify-center">
+        <button className="p-1 bg-ahover rounded-xl" onClick={router.back}>
+          <ArrowLeftIcon className="icon-xs" />
+        </button>
+      </div>
+      <HoverPopper target={copyPopper}>
+        {content}
+      </HoverPopper>
+      <ContrastTextButton onClick={onCopyClick.run}
+        onMouseEnter={copyPopper.use}
+        onMouseLeave={copyPopper.unset}>
+        <div className="flex flex-col items-center">
+          <span className="text-xl text-colored">
+            {wallet!.data!.name}
+          </span>
+          <span className="text-contrast">
+            {`${address.slice(0, 5)}...${address.slice(-5)}`}
+          </span>
+          <span className="text-contrast">{`${fbalance} Goerli ETH`}</span>
+        </div>
+      </ContrastTextButton>
+      <div className="w-[50px] flex justify-center">
+        <div className="p-1">
+          <img className="icon-sm"
+            src="logo.svg" alt="logo" />
+        </div>
+      </div>
     </div>
+    <div className="h-1" />
+    <ActionButton />
+  </div>
 
   const RecipientInput = <>
     <h3 className="font-medium">
@@ -143,7 +198,7 @@ export function WalletPage(props: {}) {
         : "Send transaction"}
     </Button>
 
-  return <main className="p-mdl h-full flex flex-col">
+  return <main className="h-full flex flex-col">
     {Header}
     <div className="h-2" />
     {AddressDisplay}

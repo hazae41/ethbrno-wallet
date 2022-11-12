@@ -1,4 +1,4 @@
-import { Button } from "components/button";
+import { OppositeTextButton } from "components/button";
 import { Dialog } from "components/dialog";
 import { Wallet } from "ethers";
 import { useCallback, useEffect, useState } from "react";
@@ -60,27 +60,37 @@ export function WalletCreatorDialog(props: CloseProps) {
   }, [name, wallet, mutate, close])
 
   const Header =
-    <h1 className="text-xl font-bold">
+    <h1 className="text-xl font-bold text-colored">
       New wallet
     </h1>
 
   const NameInput =
-    <input className="p-mdl rounded-xl border border-contrast outline-none"
+    <input className="p-mdl rounded-xl border border-default outline-violet6"
       placeholder="Enter a name"
       value={name} onChange={onNameChange} />
 
   const KeyInput =
-    <textarea className="p-mdl rounded-xl border border-contrast outline-none resize-none"
+    <textarea className="p-mdl rounded-xl border border-default outline-violet6 resize-none"
       placeholder="Enter your private key"
       value={key} onChange={onKeyChange}
       rows={4} />
 
+  const Info =
+    <span className="text-contrast text-sm">
+      {"We have generated a new private key, just enter the name and add to create a new wallet."}
+    </span>
+
+  const Info2 =
+    <span className="text-contrast text-sm">
+      {"You can also enter an existing private key to import an existent wallet."}
+    </span>
+
   const DoneButton =
-    <Button
+    <OppositeTextButton
       disabled={!name || !wallet}
       onClick={onDoneClick}>
-      Save
-    </Button>
+      Add
+    </OppositeTextButton>
 
   return <Dialog close={close}>
     {Header}
@@ -88,7 +98,14 @@ export function WalletCreatorDialog(props: CloseProps) {
     {NameInput}
     <div className="h-2" />
     {KeyInput}
+    <div className="h-2" />
+    {Info}
+    <div className="h-2" />
+    {Info2}
     <div className="grow" />
-    {DoneButton}
+    <div className="">
+      {DoneButton}
+    </div>
+    <div className="h-1" />
   </Dialog>
 }
