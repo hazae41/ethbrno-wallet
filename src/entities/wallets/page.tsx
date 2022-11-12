@@ -78,6 +78,9 @@ export function WalletPage(props: {}) {
     if (tx.error !== undefined) throw tx.error
 
     setTxHash(tx.data)
+
+    balance.refetch()
+    nonce.refetch()
   }, [circuit, address, nonce.data, gasPrice.data, recipientInput, valueInput], alertAsJson)
 
   const Header =

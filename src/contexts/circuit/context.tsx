@@ -1,6 +1,7 @@
 import { Circuit } from "@hazae41/echalote";
 import fallbacks from "assets/fallbacks.json";
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { randomOf } from "utils/array";
 import { ChildrenProps } from "utils/react/props";
 import { useTor } from "../tor/context";
 
@@ -10,6 +11,28 @@ export const CircuitContext =
 export function useCircuit() {
   return useContext(CircuitContext)!
 }
+
+const middles = [
+  "CCA99738D64ECF8E2D478FABA9D38EDAE6B5DCFD",
+  "720ABE4554C55EE6F6099491CA55D1F5550512C5",
+  "D89267FB10BF625D31FF7687AF7D12B03BBF757C",
+  "23BAB4A9B1B7F553599CD81AED553FACB7B35210",
+  "FD449127D30D8F5D124653D9EF736EDF4A12B4DC",
+  "975D138E0851C06D2AD520DF7F24660802970CA1",
+  "D3A1B7DEF370CBC6055F3FC540A518C8576D7570",
+  "A2E6BB5C391CD46B38C55B4329C35304540771F1"
+]
+
+const exits = [
+  "4211FE6AA3991CFD9CD1CC897BD09C2CF73CF1F7",
+  "4BA3C12B073B7E3F7977C46AF3638685BB89493F",
+  "3749EECB5432FC91CEC2E62CD2AE097801ACF58E",
+  "EF46C4D668872EA21E8A1967E9902D13B7E95263",
+  "C85B30A8356E826418CB901254B7595FE1430619",
+  "9E624E0E5EBA3156BFDA98AC703BCFF95E9A2FF6",
+  "C8D207FE01D241F9AC86F2A2851CDC2E6998E51C",
+  "BC06A4AE847DDC23FD63082E388BB30924DAB4B6"
+]
 
 export function CircuitProvider(props: ChildrenProps) {
   const { children } = props
@@ -23,10 +46,12 @@ export function CircuitProvider(props: ChildrenProps) {
 
     const circuit = await tor.create()
 
-    const middle = fallbacks.find(it => it.id === "42A955B09A4E327FBFB46A08F6E21705271CCA12")!
+    const middleid = randomOf(middles)!
+    const middle = fallbacks.find(it => it.id === middleid)!
     await circuit._extend(middle)
 
-    const exit = fallbacks.find(it => it.id === "A868303126987902D51F2B6F06DD90038C45B119")!
+    const exitid = randomOf(exits)!
+    const exit = fallbacks.find(it => it.id === exitid)!
     await circuit._extend(exit)
 
     setCircuit(circuit)

@@ -56,7 +56,7 @@ export function getBalanceSchema(address: string, circuit: Circuit) {
   return getSingleSchema<BigNumber>({
     endpoint: "https://rpc.ankr.com/eth_goerli",
     method: "eth_getBalance",
-    params: [address, "latest"]
+    params: [address, "pending"]
   }, fetcher)
 }
 
@@ -78,7 +78,7 @@ export function getNonceSchema(address: string, circuit: Circuit) {
   return getSingleSchema<BigNumber>({
     endpoint: "https://rpc.ankr.com/eth_goerli",
     method: "eth_getTransactionCount",
-    params: [address, "latest"]
+    params: [address, "pending"]
   }, fetcher)
 }
 
