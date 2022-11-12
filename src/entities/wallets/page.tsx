@@ -8,7 +8,7 @@ import { useState } from "react";
 import { alertAsJson } from "utils/errors";
 import { tryFloat } from "utils/ethers/bignum";
 import { useAsyncTry } from "utils/react/async";
-import { useInputChange } from "utils/react/inputs";
+import { useInputChange } from "utils/react/events";
 import { torrpcfetch } from "utils/tor/fetcher";
 import { useBalance, useGasPrice, useNonce, useWallet } from "./data";
 

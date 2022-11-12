@@ -1,0 +1,49 @@
+@layer components {
+  .icon-4xs {
+    @apply w-1 h-1;
+  }
+  
+  .icon-3xs {
+    @apply w-2 h-2;
+  }
+
+  .icon-2xs {
+    @apply w-3 h-3;
+  }
+  
+  .icon-xs {
+    @apply w-4 h-4;
+  }
+
+  .icon-sm {
+    @apply w-5 h-5;
+  }
+
+  .icon-md {
+    @apply w-6 h-6;
+  }
+
+  .icon-lg {
+    @apply w-7 h-7;
+  }
+
+  .icon-xl {
+    @apply w-8 h-8;
+  }
+  
+  .icon-2xl {
+    @apply w-9 h-9;
+  }
+
+  .icon-3xl {
+    @apply w-10 h-10;
+  }
+
+  .icon-4xl {
+    @apply w-11 h-11;
+  }
+
+  .icon-5xl {
+    @apply w-12 h-12;
+  }
+}
