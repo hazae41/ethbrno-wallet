@@ -53,7 +53,7 @@ export function TorProvider(props: ChildrenProps) {
       </span>
       <div className="h-[20px]" />
       <span className="text-center text-contrast">
-        It may take a few seconds, if freeze: close the extension window and open it again
+        It may take a few seconds. If it freezes, close the extension window and open it again.
       </span>
     </div>
 

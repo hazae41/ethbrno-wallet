@@ -33,17 +33,15 @@ const exits = [
 //   "51374C8DA459C67329FFD5C7502CCAE4194910CC",
 //   "31832D42A1B47E90970704FE6D7210D25FA1E5E3",
 //   "8F9CD937D0177BE8AC9E27D18604F93216DFA6A9",
-//   "6E3B4821305D96F167C392DBE5A13240D6CCE024"
 // ]
 
 // const exits = [
-//   "EEF40B4CDDAA8F674685491E45E9399179AA1832",
+//   "4211FE6AA3991CFD9CD1CC897BD09C2CF73CF1F7",
+//   "C8D207FE01D241F9AC86F2A2851CDC2E6998E51C",
+//   "BC06A4AE847DDC23FD63082E388BB30924DAB4B6",
 //   "4C3EF4B0C172F0C12891566E276F16D7DC07D049",
-//   "8A522F30A3CEA7C692A0418C936232BA2E54F8B3",
 //   "B2197C23A4FF5D1C49EE45BA7688BA8BCCD89A0B",
 //   "630F75D5AD741889C1BC46DC354A6320152A7B32",
-//   "A5BBC2C61B1F6B09097011C4CE56BBE57DE5AC92",
-//   "311A4533F7A2415F42346A6C8FA77E6FD279594C",
 // ]
 
 export function CircuitProvider(props: ChildrenProps) {
@@ -99,7 +97,7 @@ export function CircuitProvider(props: ChildrenProps) {
       </span>
       <div className="h-[20px]" />
       <span className="text-center text-contrast">
-        It may take a few seconds, if freeze: close the extension window and open it again
+        It may take a few seconds. If it freezes, close the extension window and open it again.
       </span>
     </div>
 
