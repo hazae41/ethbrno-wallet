@@ -1,4 +1,4 @@
-import { ArrowTopRightOnSquareIcon, CurrencyDollarIcon } from "@heroicons/react/24/outline"
+import { CurrencyDollarIcon } from "@heroicons/react/24/outline"
 import { ExternalDivisionLink } from "utils/next/anchor"
 import { useElement } from "utils/react/element"
 import { OppositeTextButtonRounded } from "./button"
@@ -26,7 +26,8 @@ function ExternalLinkButton() {
             <OppositeTextButtonRounded
                 onMouseEnter={linkPopper.use}
                 onMouseLeave={linkPopper.unset}>
-                <ArrowTopRightOnSquareIcon className="icon-md" />
+                <img className="icon-md text-colored"
+                    src="/tor.svg" alt="tor" />
             </OppositeTextButtonRounded>
         </ExternalDivisionLink>
     </>
