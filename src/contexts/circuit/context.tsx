@@ -18,6 +18,16 @@ const middles = [
   "23BAB4A9B1B7F553599CD81AED553FACB7B35210",
   "FD449127D30D8F5D124653D9EF736EDF4A12B4DC",
   "D3A1B7DEF370CBC6055F3FC540A518C8576D7570",
+  "51374C8DA459C67329FFD5C7502CCAE4194910CC",
+  "8DBEF8D824437770261B4C7453F2815DB7FC9165",
+  "05C32C5EE14454E0C4CD81DAE0F3DC32F729DA4B",
+  "31832D42A1B47E90970704FE6D7210D25FA1E5E3",
+  "744855BFC9EB316D35879728BDA57C9A94E39257",
+  "7A563F2DF40B0E9AB36AE57EFF99323F803F2428",
+  "18F34AE6567F5FB081C4353D5EDA5CEE155810C4",
+  "BDD09D5DB782B6023791DBFFD46F100B1F023ABB",
+  "8F9CD937D0177BE8AC9E27D18604F93216DFA6A9",
+  "6E3B4821305D96F167C392DBE5A13240D6CCE024"
 ]
 
 const exits = [
@@ -28,7 +38,10 @@ const exits = [
   "C85B30A8356E826418CB901254B7595FE1430619",
   "9E624E0E5EBA3156BFDA98AC703BCFF95E9A2FF6",
   "C8D207FE01D241F9AC86F2A2851CDC2E6998E51C",
-  "BC06A4AE847DDC23FD63082E388BB30924DAB4B6"
+  "BC06A4AE847DDC23FD63082E388BB30924DAB4B6",
+  "DA3F6FB18CFC6037D66A447217F4C41FB191826B",
+  "F7321B2AED66AECF07CB11880CC9453EB37B3828",
+  "376DC7CAD597D3A4CBB651999CFAD0E77DC9AE8C"
 ]
 
 export function CircuitProvider(props: ChildrenProps) {
@@ -45,13 +58,18 @@ export function CircuitProvider(props: ChildrenProps) {
 
     const middleid = randomOf(middles)!
     const middle = fallbacks.find(it => it.id === middleid)!
-    console.log("middleid", middleid)
+
+    // const middle = randomOf(fallbacks)!
+
+    console.log("middleid", middle.id)
     await circuit._extend(middle)
 
     const exitid = randomOf(exits)!
     const exit = fallbacks.find(it => it.id === exitid)!
 
-    console.log("exitid", exitid)
+    // const exit = randomOf(fallbacks.filter(it => it.exit))!
+
+    console.log("exitid", exit.id)
     await circuit._extend(exit)
 
     setCircuit(circuit)
