@@ -45,15 +45,14 @@ export function CircuitProvider(props: ChildrenProps) {
 
     const middleid = randomOf(middles)!
     const middle = fallbacks.find(it => it.id === middleid)!
-    await circuit._extend(middle)
-
     console.log("middleid", middleid)
+    await circuit._extend(middle)
 
     const exitid = randomOf(exits)!
     const exit = fallbacks.find(it => it.id === exitid)!
-    await circuit._extend(exit)
 
     console.log("exitid", exitid)
+    await circuit._extend(exit)
 
     setCircuit(circuit)
   }, [tor])
