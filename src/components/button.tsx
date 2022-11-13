@@ -1,10 +1,6 @@
 import { OptionalIconProps } from "utils/react/icon";
 import { ButtonProps, RefProps } from "utils/react/props";
 
-export function Button(props: ButtonProps) {
-  return <button {...props} />
-}
-
 export function ContrastTextButton(props: ButtonProps & OptionalIconProps & RefProps<HTMLButtonElement>) {
 
   const { xref, icon: Icon, className, children, ...other } = props
