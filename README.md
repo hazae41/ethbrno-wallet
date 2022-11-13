@@ -25,7 +25,14 @@ You don't have to trust our wallet, the third parties just can't see your IP add
 <img width="762" alt="Screenshot 2022-11-12 at 11 27 37" src="https://user-images.githubusercontent.com/117318058/201469966-191d2c65-c680-4d52-a9af-93203bf8c1b5.png">
 
 ## 3. How to see that Metamask is leaking IP address?
-1. Add our proxy to your metamask networks and click on `Save` (https://proxy.haz.workers.dev)
+1. Add our proxy to your metamask networks
+Network name: ETHBrno - Proxy
+New RPC URL : lien du proxy
+Chain ID: 1
+Currency Symbol: ETH
+
+Then click on `Save`.
+
 2. Go there https://ethbrno-logs.vercel.app/ and you can see some Metamask requests on the right side with your IP address.
 
 ## 4. How to use it?
@@ -43,10 +50,10 @@ You don't have to trust our wallet, the third parties just can't see your IP add
 
 #### B. Use the wallet 
 1. Launch the extension, click on `Create wallet`.
-2. Enter a name for your wallet, save your seed, click on `I saved my seed`.
+2. Enter a name for your wallet click on `Add`.
 3. Click on your wallet, copy your wallet address, fund your wallet with Goerli by clicking on the $ icon.
 4. Add a recipient, a value and send some Goerli to a lucky guy.
-5. Click on the TOR logo to analyse your transaction and see that the IP was hidden (to analyse the IP, we added a proxy that give us the IP address received by the RPC/third parties, if you don't find the website with the TOR logo, here you go: https://ethbrno-logs.vercel.app/).
+5. Click on the TOR logo to analyse your transaction and see on the left side that the IP address is hidden (to analyse the IP, we added a proxy that give us the IP address received by the RPC/third parties, if you don't find the website with the TOR logo, here you go: https://ethbrno-logs.vercel.app/).
 
 🎉🥳🍾 Congrats, you just used the first privacy oriented wallet on Ethereum.
 
@@ -54,7 +61,7 @@ You don't have to trust our wallet, the third parties just can't see your IP add
 After ETHBrno, we plan to further develop Lunar Wallet by adding several features necessary for everyday use, such as the integration of on-chain privacy tools (Aztec Network), supporting other blockchains (EVM & Non-EVM) and adding a token approval manager.
 
 
-Here is what Lunar Wallet would look like on Q1 2023:
+Here is what Lunar Wallet features would look like on Q1 2023:
 
 
 <img width="966" alt="Screenshot 2022-11-12 at 12 00 57" src="https://user-images.githubusercontent.com/117318058/201471000-ab4b3836-227d-46ff-99b8-887968624cfe.png">
