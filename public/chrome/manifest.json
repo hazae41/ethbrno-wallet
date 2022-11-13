@@ -7,9 +7,10 @@
     "default_title": "Lunar Wallet",
     "default_popup": "index.html"
   },
-  "host_permissions": [
-    "https://meek.bamsoftware.com/*"
-  ],
+  "icons": {
+    "512": "logo.png"
+  },
+  "host_permissions": ["https://meek.bamsoftware.com/*"],
   "content_security_policy": {
     "extension_pages": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; connect-src https://meek.bamsoftware.com/;"
   }
