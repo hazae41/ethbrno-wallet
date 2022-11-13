@@ -29,7 +29,7 @@ You don't have to trust our wallet, the third parties just can't see your IP add
 
 Network name: ETHBrno - Proxy
 
-New RPC URL : lien du proxy
+New RPC URL : https://proxy.haz.workers.dev
 
 Chain ID: 1
 
