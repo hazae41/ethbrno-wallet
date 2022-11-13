@@ -3,7 +3,8 @@
 ## Summary
 ##### [1. What is Lunar Wallet?](#1-what-is-lunar-wallet)
 ##### [2. How is it different from other wallets?](#2-how-is-it-different-from-other-wallets-1)
-##### [3. How to use it?](#3-how-to-use-it-1)
+##### [3. How to use it?](#3-how-to-see-that-metamask-is-leaking-ip-address)
+##### [4. How to use it?](#4-how-to-use-it-1)
 ##### [4. What's next?](#4-whats-next-1)
 
 ## 1. What is Lunar Wallet?
@@ -23,8 +24,11 @@ You don't have to trust our wallet, the third parties just can't see your IP add
 
 <img width="762" alt="Screenshot 2022-11-12 at 11 27 37" src="https://user-images.githubusercontent.com/117318058/201469966-191d2c65-c680-4d52-a9af-93203bf8c1b5.png">
 
+## 3. How to see that Metamask is leaking IP address?
+1. Add our proxy to your metamask networks and click on `Save` (https://proxy.haz.workers.dev)
+2. Go there https://ethbrno-logs.vercel.app/ and you can see some Metamask requests on the right side with your IP address.
 
-## 3. How to use it?
+## 4. How to use it?
 #### A. Install the wallet
 1. Clone the repo
 2. Install and build
